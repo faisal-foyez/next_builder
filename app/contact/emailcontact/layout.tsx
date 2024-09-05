@@ -1,13 +1,14 @@
 
-export default async function ContactMailLayout(
+export default async function EmailContactLayout(
   {children}:{
     children:React.ReactNode
   }
 ){
-
   return(
     <section>
-      <span>Contact Mail Layout</span>
+      <span>Email Contact Template</span>
+      
+
       {children}
     </section>
   )

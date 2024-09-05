@@ -1,17 +1,9 @@
-import { wait } from "@/utils/util";
-
-export default async function ContactLayout(
-  {children}:{
-    children:React.ReactNode
-  }
-){
+export default function ContactLayout ({children}:{children:React.ReactNode}) {
   
-  await wait(2000);
-
-  return(
-    <section>
-      <span>Contact Layout</span>
+  return (
+    <div>
+      Contact Layout
       {children}
-    </section>
+    </div>
   )
-}
+} 
