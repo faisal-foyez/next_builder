@@ -1,8 +1,9 @@
 'use client';
+import { wait } from "@/utils/util";
 import Link from "next/link"
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function Navlink () {
+export default async function Navlink () {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router  = useRouter();
@@ -12,6 +13,7 @@ export default function Navlink () {
     params.set("sort", sortOrder);
     window.history.pushState(null, '', `?${params.toString()}`)
   }
+
   return (
     <div className="flex gap-5">
       <Link prefetch className={`${pathname === "/contact/mailcontact" ? "underline text-red-500" : ""}`} href="/contact/mailcontact">mail_contact</Link>

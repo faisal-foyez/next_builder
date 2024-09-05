@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
 import Navlink from '../components/NavLinks';
+import { Suspense } from 'react';
 
 export default async function ContactLayout(
   {children}:{
@@ -10,7 +11,9 @@ export default async function ContactLayout(
   return(
     <section>
       <span>template Contact Layout</span>
-      <Navlink />
+      <Suspense fallback={<div>Navlink Loading...</div>}>
+        <Navlink />
+      </Suspense>
       {children}
     </section>
   )
