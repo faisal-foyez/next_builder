@@ -10,7 +10,7 @@ export default function  Gallery() {
     <div className="flex flex-row flex-wrap gap-10">
       {
         images.map(image=>(
-          <Link href={`photo/${image.id}`}>
+          <Link key={image.id} href={`photo/${image.id}`}>
             <div className="h-[500px] w-[300px] border">
               <img src={image.src} className="h-[90%] object-cover"/>
               <span>{image.name}</span>
