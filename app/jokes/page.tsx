@@ -1,6 +1,7 @@
 import RandomJoke from "../components/RandomJoke";
+import RandomJokeAxios from "../components/RandomJokesAxios";
 
-export const revalidate = 5;
+// export const dynamic = 'force-dynamic';
 
 export default async function Todos () {
 
@@ -8,7 +9,7 @@ export default async function Todos () {
     <>
       <RandomJoke />
       <hr/>
-      <RandomJoke />
+      <RandomJokeAxios />
     </>
   )
 }
