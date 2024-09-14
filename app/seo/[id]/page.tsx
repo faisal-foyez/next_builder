@@ -6,16 +6,23 @@ type Props = {
 }
 
 export async function generateMetadata(
-  {params, searchParams}: Props,
+  { params, searchParams }: Props,
   parent: ResolvingMetadata
-): Promise<Metadata>{
-  const id = params.id;
-  console.log('dynamic metadata',id);
+): Promise<Metadata> {
+  // read route params
+  const id = params.id
+ 
+  // fetch data
+  const product = await fetch(`https://.../${id}`).then((res) => res.json())
+ 
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+ 
   return {
-    title:id,
-    openGraph:{
-
-    }
+    title: product.title,
+    openGraph: {
+      images: ['/some-specific-page-image.jpg', ...previousImages],
+    },
   }
 }
 
